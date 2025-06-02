@@ -1,10 +1,13 @@
 // app/api/users/[id]/route.ts
 import { PrismaClient } from '@prisma/client';
 
+// Initialize Prisma client
 const prisma = new PrismaClient();
 
-export async function GET(request: Request, context: { params: { id: string } }) {
-    const { params } = context;
+export async function GET(
+    request: Request,
+    { params }: { params: { id: string } }
+) {
     try {
         // Validate that id is a valid number
         const userId = Number(params.id);
@@ -39,8 +42,10 @@ export async function GET(request: Request, context: { params: { id: string } })
     }
 }
 
-export async function PUT(request: Request, context: { params: { id: string } }) {
-    const { params } = context;
+export async function PUT(
+    request: Request,
+    { params }: { params: { id: string } }
+) {
     try {
         // Validate that id is a valid number
         const userId = Number(params.id);
@@ -88,8 +93,10 @@ export async function PUT(request: Request, context: { params: { id: string } })
     }
 }
 
-export async function DELETE(request: Request, context: { params: { id: string } }) {
-    const { params } = context;
+export async function DELETE(
+    request: Request,
+    { params }: { params: { id: string } }
+) {
     try {
         // Validate that id is a valid number
         const userId = Number(params.id);
